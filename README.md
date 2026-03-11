@@ -1,24 +1,53 @@
-# fetch-financial-reports
+# Finance Agent Skills
 
-Fetch SEC XBRL financial data and save to local files for analysis.
+A collection of financial analysis and data monitoring skills for AI agents.
+Turn your coding assistant into a financial analyst.
 
-## Usage
+## Included Skills
+
+| Skill | Description |
+|-------|-------------|
+| **[fetch-financial-reports](./fetch-financial-reports)** | Fetch SEC 10-K/10-Q filings and extract XBRL financial data. |
+| **[sec-filing-monitor](./sec-filing-monitor)** | Monitor SEC EDGAR for new filings from specific companies. |
+| **[sec-edgar-skill](./sec-edgar-skill)** | Core utilities for interacting with the SEC EDGAR system. |
+
+## Installation
+
+You can install these skills using the [Agent Skills CLI](https://github.com/vercel-labs/skills).
+
+### Install All Skills
+Add the entire toolkit to your agent (OpenClaw, Claude Code, Cursor, etc.):
 
 ```bash
-python fetch_xbrl.py AAPL                # Apple 10-K → output/AAPL/
-python fetch_xbrl.py MSFT --form 10-Q    # Microsoft 10-Q
-python fetch_xbrl.py NVDA -f 10-Q -o ./data  # Custom output
+npx skills add kwp-lab/finance-agent-skills
 ```
 
-## Dependencies
+### Install Specific Skills
+If you only need a specific capability:
 
 ```bash
-pip install edgartools
+# Install only the report fetcher
+npx skills add kwp-lab/finance-agent-skills --skill fetch-financial-reports
+
+# Install only the monitor
+npx skills add kwp-lab/finance-agent-skills --skill sec-filing-monitor
 ```
 
-## Output
+### Manual Installation
+Clone this repository and symlink the skills to your agent's skill directory:
 
-Files saved to `output/<TICKER>/`:
-- Full markdown report with all financial statements
-- Individual statement files (income, balance sheet, cash flow)
-- Metadata JSON with filing info
+```bash
+git clone https://github.com/kwp-lab/finance-agent-skills.git
+cd finance-agent-skills
+
+# Example for OpenClaw
+ln -s $(pwd)/fetch-financial-reports ~/.openclaw/skills/
+ln -s $(pwd)/sec-filing-monitor ~/.openclaw/skills/
+```
+
+## Requirements
+Most skills in this package require Python 3.10+ and specific dependencies.
+Check the `requirements.txt` inside each skill folder.
+
+## License
+MIT
