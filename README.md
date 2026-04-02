@@ -1,53 +1,27 @@
 # Finance Agent Skills
 
-A collection of financial analysis and data monitoring skills for AI agents.
-Turn your coding assistant into a financial analyst.
+A collection of AI agent skills and agents for financial analysis, SEC filing retrieval, and company monitoring.
 
-## Included Skills
+## Contents
+
+### Skills (`skills/`)
 
 | Skill | Description |
 |-------|-------------|
-| **[fetch-financial-reports](./fetch-financial-reports)** | Fetch SEC 10-K/10-Q filings and extract XBRL financial data. |
-| **[sec-filing-monitor](./sec-filing-monitor)** | Monitor SEC EDGAR for new filings from specific companies. |
-| **[sec-edgar-skill](./sec-edgar-skill)** | Core utilities for interacting with the SEC EDGAR system. |
+| [fetch-financial-reports](./skills/fetch-financial-reports) | Fetch SEC 10-K/10-Q filings and extract XBRL financial data |
+| [sec-edgar-skill](./skills/sec-edgar-skill) | Analyze SEC EDGAR filings using EdgarTools |
+| [sec-filing-monitor](./skills/sec-filing-monitor) | Monitor SEC EDGAR for new filings from specific companies |
 
-## Installation
+### Agents (`.buda/agents/`)
 
-You can install these skills using the [Agent Skills CLI](https://github.com/vercel-labs/skills).
+| Agent | Description |
+|-------|-------------|
+| [finance-analyst](./.buda/agents/finance-analyst) | A financial analysis agent bundling all three skills above |
 
-### Install All Skills
-Add the entire toolkit to your agent (OpenClaw, Claude Code, Cursor, etc.):
+## Repository
 
-```bash
-npx skills add kwp-lab/finance-agent-skills
-```
-
-### Install Specific Skills
-If you only need a specific capability:
-
-```bash
-# Install only the report fetcher
-npx skills add kwp-lab/finance-agent-skills --skill fetch-financial-reports
-
-# Install only the monitor
-npx skills add kwp-lab/finance-agent-skills --skill sec-filing-monitor
-```
-
-### Manual Installation
-Clone this repository and symlink the skills to your agent's skill directory:
-
-```bash
-git clone https://github.com/kwp-lab/finance-agent-skills.git
-cd finance-agent-skills
-
-# Example for OpenClaw
-ln -s $(pwd)/fetch-financial-reports ~/.openclaw/skills/
-ln -s $(pwd)/sec-filing-monitor ~/.openclaw/skills/
-```
-
-## Requirements
-Most skills in this package require Python 3.10+ and specific dependencies.
-Check the `requirements.txt` inside each skill folder.
+GitHub: [kwp-lab/finance-agent-skills](https://github.com/kwp-lab/finance-agent-skills)
 
 ## License
+
 MIT

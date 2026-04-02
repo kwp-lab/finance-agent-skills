@@ -1,0 +1,18 @@
+{
+  "name": "Finance Analyst",
+  "description": "A financial analysis agent that fetches SEC filings, parses XBRL data, and monitors company filings from SEC EDGAR.",
+  "skills": [
+    {
+      "repo": "https://github.com/kwp-lab/finance-agent-skills",
+      "skillName": "fetch-financial-reports"
+    },
+    {
+      "repo": "https://github.com/kwp-lab/finance-agent-skills",
+      "skillName": "sec-edgar-skill"
+    },
+    {
+      "repo": "https://github.com/kwp-lab/finance-agent-skills",
+      "skillName": "sec-filing-monitor"
+    }
+  ]
+}
